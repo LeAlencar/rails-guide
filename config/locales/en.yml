@@ -27,10 +27,14 @@
 #       "yes": yup
 #       enabled: "ON"
 
-
 en:
   hello: "Hello world"
   products:
     index:
       title: "Products"
-
+  activerecord:
+    attributes:
+      user:
+        password_challenge: "Current password"
+        password: "New password"
+        password_confirmation: "Confirm new password"
