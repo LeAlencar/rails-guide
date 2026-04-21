@@ -17,12 +17,22 @@ Rails.application.routes.draw do
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
 
   namespace :settings do
-    resource :password, only: [ :show, :update]
+    resource :email, only: [ :show, :update ]
+    resource :password, only: [ :show, :update ]
     resource :profile, only: [ :show, :update ]
     resource :user, only: [ :show, :destroy ]
 
     root to: redirect("/settings/profile")
   end
+
+  namespace :email do
+    resources :confirmations, param: :token, only: [ :show ]
+  end
+
+  namespace :store do
+    resources :users
+  end
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
